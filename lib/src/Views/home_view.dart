@@ -28,7 +28,12 @@ class HomeView extends StatelessWidget {
           alignment: Alignment.center,
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: controller.indexTab == 3
+        floatingActionButton: controller.indexTab == 1
+            ? CustomFloatingActionButton(
+                icon: Icon(Icons.mic),
+                text: "Speech To Text",
+              )
+            : controller.indexTab == 3
             ? CustomFloatingActionButton(
                 icon: Icon(Icons.logout),
                 text: "Déconnexion",
@@ -85,7 +90,7 @@ class HomeView extends StatelessWidget {
   }) {
     return Container(
       height: 40.h,
-      margin: EdgeInsets.symmetric(horizontal: 40.w),
+      margin: EdgeInsets.symmetric(horizontal: 80.w),
       child: TextButton.icon(
         onPressed: () {},
         label: Text(text),
