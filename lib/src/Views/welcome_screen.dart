@@ -34,7 +34,7 @@ class welcomeScreen extends StatelessWidget {
                                   style: TextStyle(fontSize: 12, color: Colors.grey),),
 
             SizedBox(height: 60.h,),
-            BottomNavigationButton(onPressed:() => Get.toNamed('home'), text: "logIn", //TODO CHANGE
+            BottomNavigationButton(onPressed:() => Get.toNamed('login'), text: "logIn",
             color:const [Color(0xFF33E4DB),Color(0xFF00BBD3)],
             ),
         
