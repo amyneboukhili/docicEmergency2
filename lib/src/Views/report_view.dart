@@ -2,6 +2,7 @@ import 'package:docicemergency2/src/widgets/heart_rate_widget.dart';
 import 'package:docicemergency2/src/widgets/no_reports_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class ReportView extends StatelessWidget {
   const ReportView({super.key});
@@ -42,6 +43,32 @@ class ReportView extends StatelessWidget {
                   value: "59KG",
                 ),
               ],
+            ),
+            SizedBox(height: 20.h),
+            Text(
+              "Reports list",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              textAlign: TextAlign.start,
+            ),
+            SizedBox(height: 4.h),
+            ListView.builder(
+              shrinkWrap: true,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 16.w),
+                  child: ListTile(
+                    title: Text("Test"),
+                    subtitle: Text("15/05/2025"),
+                    leading: Icon(Icons.insert_drive_file),
+                    trailing: Icon(Icons.more_horiz),
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(color: Colors.grey.shade300, width: 1),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                );
+              },
+              itemCount: 3,
             ),
           ],
         ),
