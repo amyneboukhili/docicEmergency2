@@ -9,12 +9,12 @@ class MapView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 3), () async {
+    /*Future.delayed(Duration(seconds: 3), () async {
       var result = (await showEmergencyDialog());
       if (result != null && result![0] == true) {
         //TODO show itenerary
       }
-    });
+    });*/
     return GetBuilder<MapController>(
       builder: (controller) => Scaffold(
         body: GoogleMap(

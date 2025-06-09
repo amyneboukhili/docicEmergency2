@@ -21,7 +21,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(
       builder: (controller) => Scaffold(
-        body: IndexedStack(index: controller.indexTab, children: screens),
+        body: IndexedStack(index: controller.indexTab, children: screens, alignment: Alignment.center,),
         bottomNavigationBar: Container(
           height: 70,
           decoration: BoxDecoration(
