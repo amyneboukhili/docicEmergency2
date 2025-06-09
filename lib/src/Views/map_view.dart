@@ -9,12 +9,15 @@ class MapView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /*Future.delayed(Duration(seconds: 3), () async {
+    final MapController controller = Get.find<MapController>();
+
+    Future.delayed(Duration(seconds: 10), () async {
       var result = (await showEmergencyDialog());
       if (result != null && result![0] == true) {
-        //TODO show itenerary
+        controller.showItenerary = true;
+        controller.update();
       }
-    });*/
+    });
     return GetBuilder<MapController>(
       builder: (controller) => Scaffold(
         body: GoogleMap(
@@ -22,6 +25,9 @@ class MapView extends StatelessWidget {
           initialCameraPosition: controller.cameraPositioninitiale,
           myLocationEnabled: true,
           zoomControlsEnabled: false,
+          polylines: controller.showItenerary
+              ? Set<Polyline>.of(controller.polylines.values)
+              : <Polyline>{},
         ),
       ),
     );

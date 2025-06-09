@@ -23,11 +23,11 @@ Future showEmergencyDialog() {
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
           textAlign: TextAlign.center,
         ),
-        const SizedBox(height: 8),
+        /*const SizedBox(height: 8),
         Text(
           "Your request will be sent in ({controller1.countDown}) seconds.",
           textAlign: TextAlign.center,
-        ),
+        ),*/
         const SizedBox(height: 20),
         ElevatedButton(
           style: ElevatedButton.styleFrom(
