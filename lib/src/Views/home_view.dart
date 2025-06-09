@@ -4,6 +4,7 @@ import 'package:docicemergency2/src/Views/map_view.dart';
 import 'package:docicemergency2/src/Views/notifications.dart';
 import 'package:docicemergency2/src/Views/profile_view.dart';
 import 'package:docicemergency2/src/Views/report_view.dart';
+import 'package:docicemergency2/src/Views/speech_to_text._view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -34,11 +35,20 @@ class HomeView extends StatelessWidget {
             ? CustomFloatingActionButton(
                 icon: Icon(Icons.mic),
                 text: "Speech To Text",
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SpeechToTextView(),
+                    ),
+                  );
+                },
               )
             : controller.indexTab == 3
             ? CustomFloatingActionButton(
                 icon: Icon(Icons.logout),
                 text: "Logout",
+                onPressed: () {},
               )
             : null,
         bottomNavigationBar: Container(
@@ -89,12 +99,13 @@ class HomeView extends StatelessWidget {
   Widget CustomFloatingActionButton({
     required String text,
     required Icon icon,
+    required Function() onPressed,
   }) {
     return Container(
       height: 40.h,
       margin: EdgeInsets.symmetric(horizontal: 80.w),
       child: TextButton.icon(
-        onPressed: () {},
+        onPressed: onPressed,
         label: Text(text),
         icon: icon,
         style: TextButton.styleFrom(backgroundColor: Colors.red),
