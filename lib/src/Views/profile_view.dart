@@ -41,8 +41,8 @@ class ProfileView extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
       ),
       width: Get.width * 0.8,
-      margin: EdgeInsets.symmetric(vertical: 4.h),
-      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
+      margin: EdgeInsets.symmetric(vertical: 6.h),
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
       child: Text(
         text,
         style: TextStyle(

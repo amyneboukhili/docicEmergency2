@@ -22,10 +22,12 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(
       builder: (controller) => Scaffold(
-        body: IndexedStack(
-          index: controller.indexTab,
-          children: screens,
-          alignment: Alignment.center,
+        body: SafeArea(
+          child: IndexedStack(
+            index: controller.indexTab,
+            children: screens,
+            alignment: Alignment.center,
+          ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: controller.indexTab == 1
