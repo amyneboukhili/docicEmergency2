@@ -5,6 +5,10 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('data');
+    return Column(
+      children: [
+        Icon(Icons.emergency_outlined)
+      ],
+    );
   }
 }
