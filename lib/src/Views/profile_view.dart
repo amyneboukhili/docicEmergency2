@@ -19,15 +19,15 @@ class ProfileView extends StatelessWidget {
           repeat: true,
         ),
         InfoWidget(
-          text: "Numéro de série: 77-554654-5464654",
+          text: "Serie Number: 77-554654-5464654",
           color: ThemeUtils.secondaryGreenBlue,
         ),
         InfoWidget(
-          text: "Nom du chaffeur: Amine",
+          text: "Drive Name: Amine",
           color: ThemeUtils.secondaryGreenBlue.withAlpha(200),
         ),
         InfoWidget(
-          text: "Nombre de staff: 2",
+          text: "Staff number: 2",
           color: ThemeUtils.secondaryGreenBlue.withAlpha(150),
         ),
       ],

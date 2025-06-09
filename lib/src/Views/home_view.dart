@@ -38,7 +38,7 @@ class HomeView extends StatelessWidget {
             : controller.indexTab == 3
             ? CustomFloatingActionButton(
                 icon: Icon(Icons.logout),
-                text: "Déconnexion",
+                text: "Logout",
               )
             : null,
         bottomNavigationBar: Container(

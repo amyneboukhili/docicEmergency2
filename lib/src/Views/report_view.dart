@@ -21,8 +21,8 @@ class ReportView extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                healthInfoWidget(color: Color(0xFFDFC5CF)),
-                healthInfoWidget(color: Color(0xFFFBF0DC)),
+                healthInfoWidget(color: Color(0xFFDFC5CF), icon: Icon(Icons.pin_drop), title: "Blood Type", value: "A+"),
+                healthInfoWidget(color: Color(0xFFFBF0DC), icon: Icon(Icons.line_weight), title: "Weight", value: "59KG"),
               ],
             ),
           ],
@@ -31,7 +31,12 @@ class ReportView extends StatelessWidget {
     );
   }
 
-  Widget healthInfoWidget({required Color color}) {
+  Widget healthInfoWidget({
+    required Color color,
+    required String title,
+    required String value,
+    required Icon icon,
+  }) {
     return Container(
       height: 150.w,
       width: 150.w,
@@ -39,6 +44,7 @@ class ReportView extends StatelessWidget {
         color: color,
         borderRadius: BorderRadius.circular(20),
       ),
+      child: Column(children: [icon, Text(title), Text(value)]),
     );
   }
 }
