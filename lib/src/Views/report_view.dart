@@ -68,7 +68,7 @@ class ReportView extends StatelessWidget {
               separatorBuilder: (context, index) {
                 return SizedBox(height: 10.h);
               },
-              itemCount: 3,
+              itemCount: 2,
             ),
           ],
         ),
