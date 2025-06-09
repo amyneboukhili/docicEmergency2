@@ -5,6 +5,7 @@ import 'package:docicemergency2/src/Views/notifications.dart';
 import 'package:docicemergency2/src/Views/profile_view.dart';
 import 'package:docicemergency2/src/Views/report_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class HomeView extends StatelessWidget {
@@ -21,7 +22,18 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(
       builder: (controller) => Scaffold(
-        body: IndexedStack(index: controller.indexTab, children: screens, alignment: Alignment.center,),
+        body: IndexedStack(
+          index: controller.indexTab,
+          children: screens,
+          alignment: Alignment.center,
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: controller.indexTab == 3
+            ? CustomFloatingActionButton(
+                icon: Icon(Icons.logout),
+                text: "Déconnexion",
+              )
+            : null,
         bottomNavigationBar: Container(
           height: 70,
           decoration: BoxDecoration(
@@ -63,6 +75,22 @@ class HomeView extends StatelessWidget {
             }),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget CustomFloatingActionButton({
+    required String text,
+    required Icon icon,
+  }) {
+    return Container(
+      height: 40.h,
+      margin: EdgeInsets.symmetric(horizontal: 40.w),
+      child: TextButton.icon(
+        onPressed: () {},
+        label: Text(text),
+        icon: icon,
+        style: TextButton.styleFrom(backgroundColor: Colors.red),
       ),
     );
   }
