@@ -4,6 +4,8 @@ import 'package:docicemergency2/src/Views/map_view.dart';
 import 'package:docicemergency2/src/Views/notifications.dart';
 import 'package:docicemergency2/src/Views/profile_view.dart';
 import 'package:docicemergency2/src/Views/report_view.dart';
+import 'package:docicemergency2/src/widgets/confirmation_alert.dart';
+import 'package:docicemergency2/src/widgets/emergency_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -19,12 +21,15 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Future.delayed(Duration(seconds: 3), () async {
+      bool? isConfirmed = (await showEmergencyDialog())[0];
+      if(isConfirmed != null && isConfirmed){
+        //TODO show itenerary
+      }
+    });
     return GetBuilder<HomeController>(
       builder: (controller) => Scaffold(
-        body: IndexedStack(
-          index: controller.indexTab,
-          children: screens,
-        ),
+        body: IndexedStack(index: controller.indexTab, children: screens),
         bottomNavigationBar: Container(
           height: 70,
           decoration: BoxDecoration(
