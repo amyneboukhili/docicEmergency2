@@ -51,22 +51,22 @@ class ReportView extends StatelessWidget {
               textAlign: TextAlign.start,
             ),
             SizedBox(height: 4.h),
-            ListView.builder(
+            ListView.separated(
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                return Padding(
-                  padding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 16.w),
-                  child: ListTile(
-                    title: Text("Test"),
-                    subtitle: Text("15/05/2025"),
-                    leading: Icon(Icons.insert_drive_file),
-                    trailing: Icon(Icons.more_horiz),
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(color: Colors.grey.shade300, width: 1),
-                      borderRadius: BorderRadius.circular(5),
-                    ),
+                return ListTile(
+                  title: Text("Test"),
+                  subtitle: Text("15/05/2025"),
+                  leading: Icon(Icons.insert_drive_file),
+                  trailing: Icon(Icons.more_horiz),
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(color: Colors.grey.shade300, width: 1),
+                    borderRadius: BorderRadius.circular(5),
                   ),
                 );
+              },
+              separatorBuilder: (context, index) {
+                return SizedBox(height: 10.h);
               },
               itemCount: 3,
             ),
