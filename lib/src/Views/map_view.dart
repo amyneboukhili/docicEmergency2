@@ -11,13 +11,13 @@ class MapView extends StatelessWidget {
   Widget build(BuildContext context) {
     final MapController controller = Get.find<MapController>();
 
-    Future.delayed(Duration(seconds: 10), () async {
+    /*Future.delayed(Duration(seconds: 10), () async {
       var result = (await showEmergencyDialog());
       if (result != null && result![0] == true) {
         controller.showItenerary = true;
         controller.update();
       }
-    });
+    });*/
     return GetBuilder<MapController>(
       builder: (controller) => Scaffold(
         body: GoogleMap(
