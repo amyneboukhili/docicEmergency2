@@ -25,40 +25,30 @@ void initState() {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Container(
-        height: double.infinity,
-        width: double.infinity,
-        decoration:const BoxDecoration(
-          color: ThemeUtils.secondaryGreenBlue,
-          gradient: LinearGradient(colors: [Color(0xFF33E4DB),Color(0xFF00BBD3)],begin: Alignment.topRight,end:  Alignment.bottomLeft),
-          
+      body: Stack(
+        children: [
+        Image.asset("assets/images/doctor.png",fit: BoxFit.fill,),
+        Container(
+          height: double.infinity,
+          width: double.infinity,
+          color: ThemeUtils.secondaryGreenBlue.withOpacity(0.26),
+
         ),
-        child: Stack(
-          children: [
-                      Column(
-             mainAxisAlignment: MainAxisAlignment.center ,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              
-              Center( child: Image.asset('assets/images/logoV2.png',width: 150.w,) ),
-                            
-                      SizedBox(
-                        height: 30.h,
-                      ),
-             
-              Text("Docic", style: Theme.of(context).textTheme.headlineLarge!.copyWith(fontSize:48.sp,fontWeight: FontWeight.bold,color: Colors.white ),
-                      ),
-                      SizedBox(height: 80.h,),
-                            Center( child:CircularProgressIndicator(
-                              color: Colors.white,
-                              
-                            ),),
-            ],
-          ),
-          ],
-        ),
+       Center(child:Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(height: 150.h,),
+           Image.asset("assets/images/logodocic.png", height: 170.h,width: 170.w,),
+           Text("Docic Emergency" , textAlign: TextAlign.center,style: Theme.of(context).textTheme.headlineLarge!.copyWith(fontSize:30.sp,fontWeight: FontWeight.bold,color: Colors.black )),
+           Text("Medical app" , textAlign: TextAlign.center,style: Theme.of(context).textTheme.headlineLarge!.copyWith(fontSize:22.sp,fontWeight: FontWeight.bold,color: Colors.blueGrey )),
+
+
+        ],
+       ))
+        ],
       ),
-    );
+    ) ;
   }
 
   Future timescreen ()

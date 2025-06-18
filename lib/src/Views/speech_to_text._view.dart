@@ -1,3 +1,4 @@
+import 'package:docicemergency2/src/Controllers/speech_to_text_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -7,7 +8,9 @@ class SpeechToTextView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    Get.put(SpeechToTextController()); 
+    return GetBuilder<SpeechToTextController>(
+      builder: (controller) => Scaffold(
       body: Stack(
         alignment: Alignment.bottomCenter,
         children: [
@@ -64,10 +67,10 @@ class SpeechToTextView extends StatelessWidget {
                   ),
                   SizedBox(height: 40.h),
                   Center(
-                    child: Text(
-                      "Hello , Emergency Calling...",
-                      style: TextStyle(color: Colors.white, fontSize: 18.sp),
-                    ),
+                    child: Obx(() => Text(
+  controller.recognizedText.value,
+  style: TextStyle(fontSize: 18.sp, color: Colors.black),
+)),
                   ),
                 ],
               ),
@@ -100,15 +103,19 @@ class SpeechToTextView extends StatelessWidget {
                     ],
                   ),
                   child: GestureDetector(
-                    onTap: () {},
+                   onTap: () => controller.toggleRecording(),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.mic, size: 40, color: Colors.white),
-                        Text(
-                          "Press to start",
-                          style: TextStyle(color: Colors.white),
-                        ),
+                         Icon(
+      controller.isListening.value ? Icons.mic_off : Icons.mic,
+      size: 40,
+      color: Colors.white,
+    ),
+    Text(
+      controller.isListening.value ? "Stop" : "Press to start",
+      style: TextStyle(color: Colors.white),
+    ),
                       ],
                     ),
                   ),
@@ -118,6 +125,6 @@ class SpeechToTextView extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ));
   }
 }

@@ -1,3 +1,5 @@
+import 'package:docicemergency2/src/Services/web_socket_service.dart';
+import 'package:docicemergency2/src/widgets/emergency_dialog.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
@@ -20,6 +22,7 @@ class HomeController extends GetxController {
     @override
   void onInit() {
     super.onInit();
+    
   }
 
   @override
@@ -32,4 +35,5 @@ class HomeController extends GetxController {
     update();
 
   }
+  
 }

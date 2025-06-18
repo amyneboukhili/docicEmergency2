@@ -1,3 +1,4 @@
+import 'package:docicemergency2/src/Controllers/ambulance_controller.dart';
 import 'package:docicemergency2/src/Utils/theme_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,91 +9,70 @@ class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ThemeUtils.secondaryGreenBlue,
-      body: Column(
-        children: [
-          SizedBox(
-            width: double.infinity,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(height: 20.h),
-                const Text(
-                  "Profile page",
-                  style: TextStyle(
-                    color: ThemeUtils.white,
-                    fontFamily: 'Jost',
-                    fontSize: 24,
-                  ),
-                ),
-                SizedBox(height: 24.h),
-                CircleAvatar(
-                  radius: 50,
-                  backgroundColor: Colors.white,
-                  child: Lottie.asset(
-                    "assets/animations/ambulance.json",
-                    width: 200.w,
-                    height: 200.h,
-                    repeat: true,
-                  ),
-                ),
-                SizedBox(height: 12.h),
-                Text(
-                  "Serie Number: 77-554654-5464654",
-                  style: TextStyle(
-                    color: ThemeUtils.white,
-                    fontFamily: 'Jost',
-                    fontSize: 25,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(height: 24.h),
-              ],
-            ),
-          ),
-          Expanded(
-            child: Container(
+    return GetBuilder<AmbulanceController>(
+      builder: (controller) => Scaffold(
+        backgroundColor: ThemeUtils.secondaryGreenBlue,
+        body: Column(
+          children: [
+            SizedBox(
               width: double.infinity,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(35),
-                  topRight: Radius.circular(35),
-                ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(height: 20.h),
+                  const Text(
+                    "Profile page",
+                    style: TextStyle(
+                      color: ThemeUtils.white,
+                      fontFamily: 'Jost',
+                      fontSize: 24,
+                    ),
+                  ),
+                  SizedBox(height: 24.h),
+                  CircleAvatar(
+                    radius: 70.r,
+                    backgroundColor: Colors.white,
+                    child: Lottie.asset(
+                      "assets/animations/ambulance.json",
+                      width: 200.w,
+                      height: 200.h,
+                      repeat: true,
+                    ),
+                  ),
+                  SizedBox(height: 12.h),
+                  Text(
+                    "${controller.ambulance != null ? "Serie Number: ${controller.ambulance!.serieNumber}" : "Loading..."}",
+                    style: TextStyle(
+                      color: ThemeUtils.white,
+                      fontFamily: 'Jost',
+                      fontSize: 25,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 24.h),
+                ],
               ),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    Row(
-                      children: <Widget>[
-                        Spacer(),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 8.sp),
-                          child: Container(
-                            height: 40.h,
-                            width: 40.w,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.white,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withAlpha(150),
-                                  spreadRadius: 5,
-                                  blurRadius: 7,
-                                  offset: const Offset(0, 3),
-                                ),
-                              ],
-                            ),
-                            child: Icon(Icons.edit),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 8.sp),
-                          child: GestureDetector(
-                            // onTap: () => controller.getData(),
+            ),
+            Expanded(
+              child: Container(
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(35),
+                    topRight: Radius.circular(35),
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: <Widget>[
+                          Spacer(),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 8.sp),
                             child: Container(
                               height: 40.h,
                               width: 40.w,
@@ -108,28 +88,53 @@ class ProfileView extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              child: Icon(Icons.menu_outlined),
+                              child: Icon(Icons.edit),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 18.h),
-                    InfoWidget(
-                      text: "Drive Name: Amine",
-                      color: ThemeUtils.secondaryGreenBlue.withAlpha(150),
-                    ),
-                    InfoWidget(
-                      text: "Staff number: 2",
-                      color: ThemeUtils.secondaryGreenBlue.withAlpha(150),
-                    ),
-                    SizedBox(height: 10.h),
-                  ],
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 8.sp),
+                            child: GestureDetector(
+                              // onTap: () => controller.getData(),
+                              child: Container(
+                                height: 40.h,
+                                width: 40.w,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.white,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.withAlpha(150),
+                                      spreadRadius: 5,
+                                      blurRadius: 7,
+                                      offset: const Offset(0, 3),
+                                    ),
+                                  ],
+                                ),
+                                child: Icon(Icons.menu_outlined),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 18.h),
+                      InfoWidget(
+                        text:
+                            " ${controller.ambulance != null ? "Drive Name: ${controller.ambulance!.driverName}" : "Loading..."}",
+                        color: ThemeUtils.secondaryGreenBlue.withAlpha(150),
+                      ),
+                      InfoWidget(
+                        text:
+                            " ${controller.ambulance != null ? "Serie Number: ${controller.ambulance!.stafNumber}" : "Loading..."}",
+                        color: ThemeUtils.secondaryGreenBlue.withAlpha(150),
+                      ),
+                      SizedBox(height: 10.h),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

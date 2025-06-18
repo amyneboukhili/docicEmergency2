@@ -21,16 +21,11 @@ class welcomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(height: 100.h, ),
-            SizedBox(child:Lottie.asset(
-            "assets/animations/doctors.json",
-            width: 200.w,
-            height: 200.h,
-            repeat: true,
-          ),width: 250.w,),
+            Image.asset("assets/images/logoekhir.png"),
            
-            Text("Welcome To Docic Hero",style:Theme.of(context).textTheme.headlineLarge!.copyWith(fontSize:30.sp,fontWeight: FontWeight.bold,color: ThemeUtils.secondaryGreenBlue ) ,),
+            // Text("Welcome To Docic Hero",style:Theme.of(context).textTheme.headlineLarge!.copyWith(fontSize:30.sp,fontWeight: FontWeight.bold,color: ThemeUtils.secondaryGreenBlue ) ,),
             SizedBox(height: 30.h,),
-             const Text("L'application DOCIC vous permet de stocker, consulter et partager très facilement vos documents de santé en toute sécurité, à tout moment et partout où vous vous trouvez.",  textAlign: TextAlign.center,
+             const Text("The DOCIC  app allows you to easily store, access and share your health documents securely, anytime and anywhere Stay safe  help is just one tap away.",  textAlign: TextAlign.center,
                                   style: TextStyle(fontSize: 12, color: Colors.grey),),
 
             SizedBox(height: 60.h,),

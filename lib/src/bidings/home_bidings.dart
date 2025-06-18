@@ -1,3 +1,4 @@
+import 'package:docicemergency2/src/Controllers/ambulance_controller.dart';
 import 'package:docicemergency2/src/Controllers/home_controller.dart';
 import 'package:docicemergency2/src/Controllers/map_controller.dart';
 import 'package:docicemergency2/src/Controllers/reports_controller.dart';
@@ -9,6 +10,6 @@ class HomeBidings extends Bindings {
     Get.put(HomeController());
     Get.put(MapController());
     Get.put(ReportsController());
-
+    Get.put(AmbulanceController());
   }
 }

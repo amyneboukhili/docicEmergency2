@@ -4,7 +4,9 @@ import 'package:docicemergency2/src/Models/ambulance_model.dart';
 import 'package:docicemergency2/src/Services/API.dart';
 import 'package:http/http.dart' as http;
 class AuthService {
-  final String baseUrl = ApiClient.baseUrl;
+final String baseUrl = ApiClient.baseUrl;
+
+
 Future<bool> singup(AmbulanceModel profile) async {
   final response = await http.post(
     Uri.parse("$baseUrl/ambulance/add/"),
@@ -43,5 +45,4 @@ try {
  }
   
 }
-
 }
