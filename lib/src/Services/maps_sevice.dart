@@ -8,7 +8,7 @@ class MapsService {
 
   Future<List<LatLng>> getRouteCoordinates(LatLng origin, LatLng destination) async {
     final String url =
-        'https://maps.googleapis.com/maps/api/directions/json?origin=${origin.latitude},${origin.longitude}&destination=${destination.latitude},${destination.longitude}&key=AIzaSyB_LyKwGCVZPgJCRkqQIpZKBOESshYsIp4';
+        'https://maps.googleapis.com/maps/api/directions/json?origin=${origin.latitude},${origin.longitude}&destination=${destination.latitude},${destination.longitude}&key=nokey';
 
     final response = await http.get(Uri.parse(url));
 
